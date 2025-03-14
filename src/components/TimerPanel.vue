@@ -152,7 +152,7 @@ const togglePause = () => {
         if (remainingTime.value <= 0) {
           props.item.isFinish = true
           // 播放计时结束提示音
-          soundService.playTimerEndSound()
+          // soundService.playTimerEndSound()
           // 通知父组件更新状态
           emit('timer-updated', props.item)
           if (timerInterval.value) {
@@ -214,7 +214,7 @@ const finishTimer = () => {
       }
 
       // 播放计时结束提示音
-      soundService.playTimerEndSound()
+      // soundService.playTimerEndSound()
       soundService.stopSound()
 
       // 通知父组件更新状态

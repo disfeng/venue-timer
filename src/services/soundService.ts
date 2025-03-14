@@ -13,6 +13,7 @@ export const soundService = {
 
     // 重置音频到开始位置（允许重复播放）
     this.timerEndSound.currentTime = 0
+    this.timerEndSound.loop = true
     // 播放提示音
     this.timerEndSound.play().catch((error) => {
       console.error('播放提示音失败:', error)
@@ -43,6 +44,8 @@ export const soundService = {
         console.error('音频加载错误:', this.timerEndSound.error)
       })
 
+      this.timerEndSound.preload = 'auto'
+      console.log('预加载声音')
       await this.timerEndSound.load()
     } catch (error) {
       console.error('预加载失败:', error)
@@ -55,6 +58,7 @@ export const soundService = {
     this.timerEndSound.currentTime = 0
     console.log('测试提示音播放')
     // 播放提示音（无论声音开关是否启用）
+    // 设置为不循环播放
     this.timerEndSound.loop = true
     this.timerEndSound.play().catch((error) => {
       console.error('播放提示音失败:', error)
