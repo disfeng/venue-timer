@@ -3,8 +3,8 @@
     <div style="flex: 0 0 240px">
       <span class="label" style="flex: 0 0 100px">是否为会员：</span>
       <el-radio-group v-model="isVip">
-        <el-radio-button label="非会员" />
-        <el-radio-button label="会员" />
+        <el-radio-button label="非会员" value="非会员" />
+        <el-radio-button label="会员" value="会员" />
       </el-radio-group>
     </div>
     <div style="flex: 0 0 230px">
@@ -17,8 +17,8 @@
     <div style="flex: 0 0 230px">
       <span class="label">计时类型：</span>
       <el-radio-group v-model="timerType">
-        <el-radio-button label="倒计时" />
-        <el-radio-button label="正计时" />
+        <el-radio-button label="倒计时" value="倒计时" />
+        <el-radio-button label="正计时" value="正计时" />
       </el-radio-group>
     </div>
     <!-- 计时时长 -->
@@ -43,6 +43,15 @@
     <div>
       <el-button type="danger" @click="deleteFinishedTimers">删除已完成</el-button>
     </div>
+    <div>
+      <el-button type="info" @click="toggleSound">
+        <el-icon>
+          <Bell v-if="soundEnabled" />
+          <Mute v-else />
+        </el-icon>
+        {{ soundEnabled ? '关闭提示音' : '开启提示音' }}
+      </el-button>
+    </div>
     <div class="flex-atto"></div>
   </div>
   <div class="timer-list">
@@ -57,13 +66,18 @@ import TimerPanel from '@/components/TimerPanel.vue'
 import HomeView from '@/views/HomeView.vue'
 import { ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import { Bell, Mute } from '@element-plus/icons-vue'
 import { storageService, type TimerItem } from '@/services/storageService'
+import { soundService } from '@/services/soundService'
 
 const isVip = ref('非会员')
 const timerName = ref('')
 const timerType = ref('倒计时')
 const timerDuration = ref(1)
 const timerList = ref<TimerItem[]>([])
+
+// 声音设置
+const soundEnabled = ref(soundService.isSoundEnabled())
 
 // 页面加载时，从存储服务加载计时器数据
 onMounted(async () => {
@@ -112,6 +126,7 @@ const updateTimer = async (updatedTimer: TimerItem) => {
 
 // 删除已完成的计时器
 const deleteFinishedTimers = async () => {
+  soundService.stopSound()
   // 检查是否有已完成的计时器
   const hasFinished = timerList.value.some((timer) => timer.isFinish)
 
@@ -148,6 +163,12 @@ const deleteTimer = async (timer: TimerItem) => {
   await storageService.saveTimers(timerList.value)
 
   ElMessage.success('计时器已删除')
+}
+
+// 切换声音开关
+const toggleSound = () => {
+  soundEnabled.value = soundService.toggleSound()
+  ElMessage.success(soundEnabled.value ? '提示音已开启' : '提示音已关闭')
 }
 </script>
 <style scoped>

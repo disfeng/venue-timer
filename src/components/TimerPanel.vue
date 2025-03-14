@@ -75,6 +75,7 @@
 import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 import type { TimerItem } from '@/services/storageService'
 import { storageService } from '@/services/storageService'
+import { soundService } from '@/services/soundService'
 import { ElMessageBox } from 'element-plus'
 
 const props = defineProps<{
@@ -130,6 +131,7 @@ const formatTimeInfo = (seconds: number) => {
 
 // 暂停/继续计时
 const togglePause = () => {
+  soundService.stopSound()
   isPaused.value = !isPaused.value
 
   if (isPaused.value) {
@@ -149,6 +151,8 @@ const togglePause = () => {
         // 时间到
         if (remainingTime.value <= 0) {
           props.item.isFinish = true
+          // 播放计时结束提示音
+          soundService.playTimerEndSound()
           // 通知父组件更新状态
           emit('timer-updated', props.item)
           if (timerInterval.value) {
@@ -208,6 +212,10 @@ const finishTimer = () => {
       if (props.item.type === '正计时') {
         props.item.duration = elapsedTime.value / 3600 // 将秒转换为小时
       }
+
+      // 播放计时结束提示音
+      soundService.playTimerEndSound()
+      soundService.stopSound()
 
       // 通知父组件更新状态
       emit('timer-updated', props.item)
@@ -269,6 +277,8 @@ onMounted(() => {
       // 时间到
       if (remainingTime.value <= 0) {
         props.item.isFinish = true
+        // 播放计时结束提示音
+        soundService.playTimerEndSound()
         // 通知父组件更新状态
         emit('timer-updated', props.item)
         if (timerInterval.value) {
