@@ -19,7 +19,7 @@
 
 ## 界面截图
 
-![界面截图](https://github.com/disfeng/venue-timer/screenshot/main.jpg)
+![界面截图](https://github.com/disfeng/venue-timer/blob/main/screenshot/main.jpg)
 
 ## 安装说明
 
