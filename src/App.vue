@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="header">
-      <h3>多用户计时器</h3>
+      <h3>场馆计时器</h3>
       <div class="timenow">{{ timenow }}</div>
     </div>
     <HomeView />

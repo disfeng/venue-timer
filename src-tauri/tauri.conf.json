@@ -12,7 +12,7 @@
   "app": {
     "windows": [
       {
-        "title": "多用户计时器",
+        "title": "场馆计时器",
         "width": 800,
         "height": 600,
         "resizable": true,

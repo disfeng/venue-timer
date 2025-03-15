@@ -1,6 +1,6 @@
-# 射箭计时器 (Archery Timer)
+# 场馆计时器 (Venue Timer)
 
-一个为射箭场馆（也可以用于其他同类型计费场馆）设计的多用户计时器应用程序，使用Tauri框架和Vue 3开发的跨平台桌面应用。
+一个为射箭场馆（也可以用于其他同类型计费场馆）设计的场馆计时器应用程序，使用Tauri框架和Vue 3开发的跨平台桌面应用。
 
 ## 功能特点
 
@@ -21,7 +21,7 @@
 
 ### 直接下载
 
-从[发布页面](https://github.com/yourusername/archery-timer/releases)下载适合您系统的安装包：
+从[发布页面](https://github.com/disfeng/venue-timer/releases)下载适合您系统的安装包：
 
 - Windows: `.msi` 或 `.exe`
 - macOS: `.dmg`
@@ -33,7 +33,7 @@
 2. 克隆仓库：
 
 ```sh
-git clone https://github.com/yourusername/archery-timer.git
+git clone https://github.com/disfeng/venue-timer.git
 cd archery-timer
 ```
 
@@ -101,7 +101,7 @@ npm run tauri build
 
 如有任何问题或建议，请通过以下方式联系我们：
 
-- GitHub Issues: [https://github.com/yourusername/archery-timer/issues](https://github.com/yourusername/archery-timer/issues)
+- GitHub Issues: [https://github.com/disfeng/venue-timer/issues](https://github.com/disfeng/venue-timer/issues)
 - 电子邮件: your.email@example.com
 
 ---
