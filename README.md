@@ -106,8 +106,8 @@ npm run tauri build
 如有任何问题或建议，请通过以下方式联系我们：
 
 - GitHub Issues: [https://github.com/disfeng/venue-timer/issues](https://github.com/disfeng/venue-timer/issues)
-- 电子邮件: your.email@example.com
+- 电子邮件: disfeng1986@gmail.com
 
 ---
 
-感谢使用射箭计时器！希望它能够帮助您更好地管理射箭训练和比赛时间。
+感谢使用场馆计时器！希望它能够帮助您更好地管理场馆训练和比赛时间。
