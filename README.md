@@ -105,7 +105,6 @@ npm run tauri build
 如有任何问题或建议，请通过以下方式联系我们：
 
 - GitHub Issues: [https://github.com/disfeng/venue-timer/issues](https://github.com/disfeng/venue-timer/issues)
-- 电子邮件: disfeng1986@gmail.com
 
 ---
 
