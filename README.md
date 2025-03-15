@@ -29,7 +29,6 @@
 
 - Windows: `.msi` 或 `.exe`
 - macOS: `.dmg`
-- Linux: `.AppImage` 或 `.deb`
 
 ### 从源代码构建
 
@@ -38,7 +37,7 @@
 
 ```sh
 git clone https://github.com/disfeng/venue-timer.git
-cd archery-timer
+cd venue-timer
 ```
 
 3. 安装依赖：
